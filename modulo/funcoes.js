@@ -126,6 +126,8 @@ const getContatosInformaçoes = function(numero){
         })
     })
     return message
+  }else{
+    return MESSAGE_ERROR
   }
 }
 
@@ -158,13 +160,14 @@ const getMensagens = function(numero) {
 }
 
 const getFiltroMessage = function(palavra){
-
+    
     let messages = []
 
     dados.contatos['whats-users'].forEach((item) =>{
         item.contacts.forEach((contato) => {
             contato.messages.forEach((message) => {
-                if(message.content.includes(palavra)){
+                let content = message.content.toLowerCase()
+                if(content.includes(palavra.toLowerCase())){
                     messages.push({
                         name: contato.name,
                         number: contato.number,
@@ -176,10 +179,21 @@ const getFiltroMessage = function(palavra){
             })
         })
     })
+    
     return messages;
 }
 
 
 
-console.log(getContatosInformaçoes('11987876567'));
+
+
+
+module.exports = {
+    getContadosAllDados,
+    getFiltroMessage,
+    getMensagens,
+    getContatosInformaçoes,
+    getDadosContato,
+    getDadosPerfill
+}
 
