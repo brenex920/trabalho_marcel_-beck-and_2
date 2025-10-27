@@ -67,7 +67,7 @@ app.get('/v1/whatsapp/dados/contato/:number', function(req, res){
 app.get('/v1/whatsapp/dados/informacao/:number', function(req, res){
 
    let perfil = req.params.number
-  let result = dados.getDadosContato(perfil);
+  let result = dados.getContatosInformaçoes(perfil);
 
   
   res.json(result)

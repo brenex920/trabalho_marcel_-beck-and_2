@@ -131,8 +131,6 @@ const getContatosInformaçoes = function(numero){
   }
 }
 
-    
-
 const getMensagens = function(numero) {
 
     let persona = numero
@@ -182,11 +180,6 @@ const getFiltroMessage = function(palavra){
     
     return messages;
 }
-
-
-
-
-
 
 module.exports = {
     getContadosAllDados,
